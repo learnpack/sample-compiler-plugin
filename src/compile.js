@@ -1,26 +1,6 @@
 const fs = require('fs')
 const { Utils, CompilationError } = require('learnpack/plugin')
 
-/**
- 
- exercise: {
-  entry: (string) Path to the file that should be considered as entry
-  files: (array) List of files inside the exercise
- }
- 
- socket: {
-  entry: (string) Path to the file that should be considered as entry
-  files: (array) List of files inside the exercise
- }
- 
-
- The configuration object contains all information you need to know about all the exercies
- configuration: {
-  outputPath: (string) 
-  publicUrl: (string) 
- }
-
- */
 module.exports = {
   validate: () => {
 
@@ -29,6 +9,22 @@ module.exports = {
 
     return true
   },
+
+  /**
+  The run function receives one object with the following properties: exercise, socket and configuration.
+
+  exercise: contains all the data about the exercise being compiled right now
+    - entry: (string) Path to the file that should be considered as entry
+    - files: (array) List of files inside the exercise
+  
+  socket: Represents a bidirectional connection with learnpack and the user, you can use the socket to ask questions, ask for confirmation, open windows, etc.
+    - openWindow: (function) A function that receives a URL to open
+  
+  configuration: The configuration object contains all information you need to know about all the exercies
+    - outputPath: (string) 
+    - publicUrl: (string) 
+
+ */
   run: async function ({ exercise, socket, configuration }) {
 
     // here you should include your compulation code, the files to compile will be inside exercise.files
