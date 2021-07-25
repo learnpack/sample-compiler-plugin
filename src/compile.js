@@ -1,7 +1,13 @@
 const fs = require('fs')
 const { Utils, CompilationError } = require('learnpack/plugin')
 
+// export an object with two functions: validate and run
 module.exports = {
+
+  /**
+   * This function does not receive any parameters, is ideal to validate if all conditions are pertect to compile.
+   * @returns true or false if the validation succeded
+   */
   validate: () => {
 
     // return true or false if the compilation should take place
